@@ -10,8 +10,8 @@ module.exports = {
     },
 
     addAdminNews: (req, res) => {
-      knex('adminNews').insert(req.body).then((results) => {
-          res.send(200)
+      knex('adminNews').insert(req.body, '*').then((results) => {
+          res.json(results[0])
       })
     },
 

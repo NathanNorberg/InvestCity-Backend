@@ -24,8 +24,8 @@ module.exports = (app) => {
     //TOKEN REQUIRED
 
 // Investors
-    app.get('/investorRegister', login_register.investorRegister);
     app.get('/investors', investors.getAllInvestors);
+    app.post('/investors/addInvestors', investors.addInvestors);
     app.patch('/investors/editInvestor/:id', investors.editInvestor);
     app.delete('/investors/deleteInvestor/:id', investors.deleteInvestor);
 
@@ -103,4 +103,4 @@ function verifyToken(req, res, next) {
       });
 
     }
-  }
+}

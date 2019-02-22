@@ -9,6 +9,12 @@ module.exports = {
         })
     },
 
+    addInvestors: (req, res) => {
+      knex('investors').insert(req.body, '*').then((results) => {
+          res.json(results[0])
+      })
+    },
+
     editInvestor: (req, res) => {
         knex('investors').update(req.body).where('id', req.params.id).then((results) => {
             res.send(200)

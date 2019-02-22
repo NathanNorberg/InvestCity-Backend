@@ -10,8 +10,8 @@ module.exports = {
     },
 
     addInvestment: (req, res) => {
-      knex('investments').insert(req.body).then((results) => {
-          res.send(200)
+      knex('investments').insert(req.body, '*').then((results) => {
+          res.json(results[0])
       })
     },
 

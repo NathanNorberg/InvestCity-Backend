@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('adminSuper').insert([
-        {id: 1, name: 'Nugman', emailAndLogin: 'nugnorberg@gmail.com', password: 'nugman', city: 'Mesa', state: 'Arizona', contactNumber: '123-456-7890'},
+        {name: 'Nugman', emailAndLogin: 'nugnorberg@gmail.com', password: 'nugman', city: 'Mesa', state: 'Arizona', contactNumber: '123-456-7890'},
       ]);
     });
 };
