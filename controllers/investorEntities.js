@@ -10,8 +10,8 @@ module.exports = {
     },
 
     addInvestorEntity: (req, res) => {
-      knex('investorEntities').insert(req.body).then((results) => {
-          res.send(200)
+      knex('investorEntities').insert(req.body, '*').then((results) => {
+          res.json(results[0])
       })
     },
 
@@ -22,7 +22,7 @@ module.exports = {
     },
 
     deleteInvestorEntity: (req, res) => {
-    knex('investorEntity').del().where('id', req.params.id).then((results) => {
+    knex('investorEntities').del().where('id', req.params.id).then((results) => {
         res.send(200)
     })
   }

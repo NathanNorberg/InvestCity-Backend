@@ -13,6 +13,12 @@ exports.up = function(knex, Promise) {
            .onDelete('CASCADE')
            .notNullable()
            .index();
+       table.integer('investorEntity_id')
+            .references('id')
+            .inTable('investorEntities')
+            .onDelete('CASCADE')
+            .notNullable()
+            .index();
       table.text('capitalInvested');
       table.timestamps(true, true)
   })
