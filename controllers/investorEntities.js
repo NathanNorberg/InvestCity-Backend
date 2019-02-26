@@ -16,14 +16,14 @@ module.exports = {
     },
 
     editInvestorEntity: (req, res) => {
-        knex('investorEntities').update(req.body).where('id', req.params.id).then((results) => {
-            res.send(200)
+        knex('investorEntities').update(req.body, '*').where('id', req.params.id).then((results) => {
+            res.json(results[0])
         })
     },
 
     deleteInvestorEntity: (req, res) => {
     knex('investorEntities').del().where('id', req.params.id).then((results) => {
-        res.send(200)
+        res.json(results[0])
     })
   }
 

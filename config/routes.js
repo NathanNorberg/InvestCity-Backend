@@ -62,8 +62,9 @@ module.exports = (app) => {
 
 
 // Investment Investors
-    app.get('/investmentInvestors', investmentInvestors.getAllinvestmentInvestors);
+    app.get('/investmentInvestors', investmentInvestors.getAllInvestmentInvestors);
     app.post('/investmentInvestors/addInvestmentInvestor', investmentInvestors.addInvestmentInvestor);
+    app.patch('/investmentInvestors/editInvestmentInvestor/:id', investmentInvestors.editInvestmentInvestor);
     app.delete('/investmentInvestors/deleteInvestmentInvestor/:id', investmentInvestors.deleteInvestmentInvestor);
 
 // Investor Investment Notes

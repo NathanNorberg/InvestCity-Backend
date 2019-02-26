@@ -10,10 +10,10 @@ module.exports = {
     },
 
     editAdminSuper: (req, res) => {
-        knex('adminSuper').update(req.body).where('id', req.params.id).then((results) => {
-            res.send(200)
+        knex('adminSuper').update(req.body, '*').where('id', req.params.id).then((results) => {
+            res.json(results[0])
         })
     },
-    
+
 
 }

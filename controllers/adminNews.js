@@ -16,14 +16,14 @@ module.exports = {
     },
 
     editAdminNews: (req, res) => {
-        knex('adminNews').update(req.body).where('id', req.params.id).then((results) => {
-            res.send(200)
+        knex('adminNews').update(req.body, '*').where('id', req.params.id).then((results) => {
+            res.json(results[0])
         })
     },
 
     deleteAdminNews: (req, res) => {
     knex('adminNews').del().where('id', req.params.id).then((results) => {
-        res.send(200)
+        res.json(results[0])
     })
   }
 

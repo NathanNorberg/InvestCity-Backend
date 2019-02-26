@@ -8,6 +8,11 @@ exports.up = function(knex, Promise) {
        .notNullable()
        .index();
       table.string('name');
+      table.string('address');
+      table.string('city');
+      table.string('state');
+      table.string('contactNumber');
+      table.string('mobileNumber');
       table.string('entityNotes');
       table.timestamps(true, true)
   })

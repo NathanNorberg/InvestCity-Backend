@@ -10,14 +10,14 @@ module.exports = {
     },
 
     editAdminMinor: (req, res) => {
-        knex('adminMinor').update(req.body).where('id', req.params.id).then((results) => {
-            res.send(200)
+        knex('adminMinor').update(req.body, '*').where('id', req.params.id).then((results) => {
+            res.json(results[0])
         })
     },
 
     deleteAdminMinor: (req, res) => {
     knex('adminMinor').del().where('id', req.params.id).then((results) => {
-        res.send(200)
+        res.json(results[0])
     })
   }
 

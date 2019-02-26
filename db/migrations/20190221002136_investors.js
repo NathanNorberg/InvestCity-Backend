@@ -2,7 +2,6 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('investors', (table) => {
       table.increments();
       table.text('name');
-      table.text('entityName');
       table.text('emailAndLogin');
       table.text('confirmPassword');
       table.text('password');
