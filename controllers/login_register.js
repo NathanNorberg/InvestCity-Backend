@@ -5,21 +5,22 @@ const secret = process.env.JWT_SECRET || 'investcity'
 
 module.exports = {
 
-    adminLogin: (req, res) => {
+  adminLogin: (req, res) => {
+      console.log('this is the body', req.body)
         knex('adminSuper')
-        .where('name', req.body.name)
+        .where('emailAndLogin', req.body.emailAndLogin)
         .first()
-        .then((adminSuper)=>{
-          if(adminSuper){
-            hasher.check(adminSuper, req.body).then((isMatch)=>{
-              if(isMatch){
-                const token = jwt.sign(adminSuper, secret);
-                delete adminSuper.password;
-                res.json({message: "Successfully signed in", token, user})
+        .then((admin)=>{
+          console.log(admin)
+          if(admin){
+              if(admin.password === req.body.password){
+                const token = jwt.sign(admin, secret);
+                delete admin.password;
+                console.log({token, admin})
+                res.json(JSON.stringify({token, admin}))
               }else{
                 res.status(400).send({message: 'Invalid Email / Password'});
               }
-            })
           }else{
             res.status(400).send({message: 'Invalid Email / Password'});
           }
