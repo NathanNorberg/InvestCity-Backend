@@ -19,6 +19,7 @@ exports.up = function(knex, Promise) {
       table.text('soldDate');
       table.text('detailedDescription');
       table.text('notesForInvestors');
+      table.text('fullReportNotes');
       table.timestamps(true, true)
   })
 };

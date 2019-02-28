@@ -4,7 +4,7 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('adminMinor').insert([
-        {name: 'White Mamba', emailAndLogin: 'mikenorberg@gmail.com', password: 'mikeman', city: 'Mesa', state: 'Arizona', contactNumber: '333-333-3333'},
+        {name: 'White Mamba', emailAndLogin: 'mike@g.com', password: 'mike', city: 'Mesa', state: 'Arizona', contactNumber: '333-333-3333'},
       ]);
     });
 };

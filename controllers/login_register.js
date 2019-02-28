@@ -30,27 +30,28 @@ module.exports = {
     },
 
     investorLogin: (req, res) => {
-        knex('investors')
-        .where('name', req.body.name)
-        .first()
-        .then((investor)=>{
-          if(investor){
-            hasher.check(investor, req.body).then((isMatch)=>{
-              if(isMatch){
-                const token = jwt.sign(investor, secret);
-                delete investor.password;
-                res.json({message: "Successfully signed in", token, user})
-              }else{
-                res.status(400).send({message: 'Invalid Email / Password'});
-              }
-            })
-          }else{
+        console.log('this is the body', req.body)
+          knex('investors')
+          .where('emailAndLogin', req.body.emailAndLogin)
+          .first()
+          .then((investor)=>{
+            console.log(investor)
+            if(investor){
+                if(investor.password === req.body.password){
+                  const token = jwt.sign(investor, secret);
+                  delete investor.password;
+                  console.log({token, investor})
+                  res.json(JSON.stringify({token, investor}))
+                }else{
+                  res.status(400).send({message: 'Invalid Email / Password'});
+                }
+            }else{
+              res.status(400).send({message: 'Invalid Email / Password'});
+            }
+          }).catch((err)=>{
             res.status(400).send({message: 'Invalid Email / Password'});
-          }
-        }).catch((err)=>{
-          res.status(400).send({message: 'Invalid Email / Password'});
-        })
-    },
+          })
+      },
 
     investorRegister: (req, res) => {
         hasher.hash(req.body).then((investor)=>{
