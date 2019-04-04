@@ -22,7 +22,7 @@ exports.seed = function(knex, Promise) {
         {investment_id: 8, investor_id: 2, investorEntity_id: 3, capitalInvested: '225,000'},
         {investment_id: 8, investor_id: 3, investorEntity_id: 5, capitalInvested: '1,500,000'},
         {investment_id: 9, investor_id: 4, investorEntity_id: 7, capitalInvested: '2,750,000'},
-        {investment_id: 9, investor_id: 5, investorEntity_id: 8, capitalInvested: '1,250,000'},
+        {investment_id: 9, investor_id: 5, investorEntity_id: 9, capitalInvested: '1,250,000'},
         {investment_id: 10, investor_id: 6, investorEntity_id: 11, capitalInvested: '420,000'},
         {investment_id: 10, investor_id: 7, investorEntity_id: 13, capitalInvested: '350,000'},
         {investment_id: 11, investor_id: 8, investorEntity_id: 15, capitalInvested: '650,000'},
